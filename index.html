@@ -3,67 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <title>Salesforce Einstein Chatbot</title>
+    <title>Salesforce Chatbot Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Salesforce Einstein Chatbot</h1>
+    <header>
+        <h1>Welcome to our Support Chat</h1>
+        <p>Click the button in the corner to chat with our Salesforce Bot!</p>
+    </header>
 
-    <style type='text/css'>
-        .embeddedServiceHelpButton .helpButton .uiButton {
-        background-color: #005290;
-        font-family: "Arial", sans-serif;
-        }
-        .embeddedServiceHelpButton .helpButton .uiButton:focus {
-        outline: 1px solid #005290;
-        }
-        </style>
-        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-        <script type='text/javascript'>
-        var initESW = function(gslbBaseURL) {
-        embedded_svc.settings.displayHelpButton = true; //Or false
-        embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-        //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-        //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-        //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-        // Settings for Chat
-        //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-        // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-        // Returns a valid button ID.
-        //};
-        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-        embedded_svc.settings.entryFeature = 'LiveAgent';
-        embedded_svc.init(
-        'https://pr1732139708778--dev.sandbox.my.salesforce.com',
-        'https://pr1732139708778--dev.sandbox.my.site.com/ESWCMOChatbot1745219376629vforcesite',
-        gslbBaseURL,
-        '00DD20000008ysp',
-        'cmo_chatbot2',
-        {
-        baseLiveAgentContentURL: 'https://c.la3-c1cs-ia6.salesforceliveagent.com/content',
-        deploymentId: '572Hs0000002NSY',
-        buttonId: '573Hs0000002NzT',
-        baseLiveAgentURL: 'https://d.la3-c1cs-ia6.salesforceliveagent.com/chat',
-        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04ID200000000fxMAA_19657386cc2',
-        isOfflineSupportEnabled: false
-        }
-        );
+    <main>
+        <p>Our intelligent chatbot is here to help you with your inquiries. Get instant answers to your questions.</p>
+        <!-- You can add more content here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CMO</p>
+    </footer>
+
+    <!-- Start of Salesforce Embedded Messaging Script -->
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+                embeddedservice_bootstrap.init(
+                    '00DD50000009Rn8',
+                    'CMO_Embedded_Service',
+                    'https://pr1732139708778--uat.sandbox.my.site.com/ESWCMOEmbeddedService1745478291533',
+                    {
+                        scrt2URL: 'https://pr1732139708778--uat.sandbox.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
         };
-        if (!window.embedded_svc) {
-        var s = document.createElement('script');
-        s.setAttribute('src', 'https://pr1732139708778--dev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-        s.onload = function() {
-        initESW(null);
-        };
-        document.body.appendChild(s);
-        } else {
-        initESW('https://service.force.com');
-        }
-        </script>
+    </script>
+    <script type='text/javascript' src='https://pr1732139708778--uat.sandbox.my.site.com/ESWCMOEmbeddedService1745478291533/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+    <!-- End of Salesforce Embedded Messaging Script -->
+
+    <!-- Your existing script.js link - keep if needed -->
     <script src="script.js"></script>
 </body>
 </html> 

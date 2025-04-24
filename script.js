@@ -1,1 +1,1 @@
-// Basic JavaScript can go here 
+// Custom JavaScript for the page can go here. 
